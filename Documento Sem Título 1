@@ -1,0 +1,8 @@
+
+
+
+LIST - curl -H "Content-Type: application/javascript" http://localhost:8000/employee/
+ADD - curl -X POST -d '{"name":"Teste", "email": "teste@teste.com", "department": "deptoteste"}' http://localhost:8000/employee/
+REMOVE - curl -H "Content-Type: application/javascript" http://localhost:8000/employee/1
+
+
