@@ -14,16 +14,8 @@ Luizalabs Employee Manager handles *crontab configuration*, remote logging with 
 #### jake.sh (entry point)
 Luizalabs Employee Manager's entry point is `jake.sh`, located in the root directory. It requires only the name of the parser (normally the apiKey). The logical execution is:
 
--A Django Admin panel to manage employees' data
--An API to list, add and remove employees
-
-1. Dynamically loads the parser file, that contains the configurations for this client;
-2. Updates the crontab entry;
-3. Downloads the XML;
-4. Calls the XML reader, passing the parser as an argument, which in turn returns an generator of well-formed JSON products;
-5. Products are saved in a compressed file;
-6. Both JSON and XML (also compressed) are uploaded to S3;
-7. The local JSON and XML files are deleted.
+- A Django Admin panel to manage employees' data
+- An API to list, add and remove employees
 
 #### xml_reader.py (core processing)
 The file `xml_reader.py` (located in `modules`) does the heavy lifting:
@@ -31,29 +23,29 @@ The file `xml_reader.py` (located in `modules`) does the heavy lifting:
 1. Splits the incoming XML (with possibly lots of GB)  into several ones (with a few KB), each containing only the SKUs related to one product;
 2. Calls `make_product` (the customization part), passing an lxml.etree.ElementTree instance with the root node of each small XML and yields the result (hence it's a generator).
 
-#### api ()
+#### API (RESTful URLs and actions)
 
-Each client must have its own specific parser. The parsers are located in the `parsers` directory and named after their apiKeys (e.g.: `parceiroambev.py`).
+Those are the actions applied to use the API. RESTful principles provide strategies to handle CRUD actions using HTTP methods mapped as follows:
 
-To query through the XML, it's recommended to use xpath ([here's a good tutorial](http://www.w3schools.com/xsl/xpath_syntax.asp)) for it's expressiveness and simplicity.
+```
+GET /employee - Retrieves a list of employees
+GET /employee/12 - Retrieves a specific employee by ID
+GET /employee/Renato - Retrieves a specific employee by Name
+POST /employee - Creates a new employee
+DELETE /employee/12 - Deletes employee ID #12
+DELETE /employee/Renato - Deletes employee Name Renato
+```
 
-Below there is an excerpt of a parser for 'parceiroambev':
+Below there is an example of each request:
 
-    """Configurations as constants"""
-    from .lib.ez import ezpath
-    
-    XML_ENDPOINT = 'http://homolog.parceiroambev...'
-    ITEM_TAG = 'item'
-    GROUP_TAG = 'item_group_id'
-    CRON = '30 * * * *'
-
-    """Callback function"""
-    def make_product(root):
-      skus = ezpath(root, '/rss/channel/item'))
-      product = {}
-      (...) # build a well-formed product
-      return product
-
+```
+ADD - curl -X POST -d '{"name":"Leonardo", "email": "leonardo@luzialabs.com", "department": "Dev"}' http://localhost:8000/employee/
+LIST - curl -X GET -H "Content-Type: application/javascript" http://localhost:8000/employee/
+GET - curl -X GET -H "Content-Type: application/javascript" http://localhost:8000/employee/leonardo
+GET - curl -X GET -H "Content-Type: application/javascript" http://localhost:8000/employee/1
+REMOVE - curl -X DELETE -H "Content-Type: application/javascript" http://localhost:8000/employee/1
+REMOVE - curl -X DELETE -H "Content-Type: application/javascript" http://localhost:8000/employee/leonardo
+```
 Except for XML_ENDPOINT, ITEM_TAG, GROUP_TAG, CRON and the `make_product` method, everything else is up to the developer!
 
 Have fun!
