@@ -14,6 +14,9 @@ Luizalabs Employee Manager handles *crontab configuration*, remote logging with 
 #### jake.sh (entry point)
 Luizalabs Employee Manager's entry point is `jake.sh`, located in the root directory. It requires only the name of the parser (normally the apiKey). The logical execution is:
 
+● A Django Admin panel to manage employees' data
+● An API to list, add and remove employees
+
 1. Dynamically loads the parser file, that contains the configurations for this client;
 2. Updates the crontab entry;
 3. Downloads the XML;
@@ -28,7 +31,7 @@ The file `xml_reader.py` (located in `modules`) does the heavy lifting:
 1. Splits the incoming XML (with possibly lots of GB)  into several ones (with a few KB), each containing only the SKUs related to one product;
 2. Calls `make_product` (the customization part), passing an lxml.etree.ElementTree instance with the root node of each small XML and yields the result (hence it's a generator).
 
-#### parser (customization)
+#### api ()
 
 Each client must have its own specific parser. The parsers are located in the `parsers` directory and named after their apiKeys (e.g.: `parceiroambev.py`).
 
