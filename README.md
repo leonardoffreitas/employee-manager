@@ -108,5 +108,3 @@ Have fun!
 
 ## Testing
 
-Run `./jake.sh --test` to run unit tests and validation sets (more on validation sets below).
-
