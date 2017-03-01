@@ -45,7 +45,7 @@ Quit the server with CONTROL-C.
 ```
 
 To close, you can press the keys `ctrl` + `c` on your keyboard, like said on the screen.
--
+
 To start the server on a different port type the port in the end of the command - 8080, for example:
 `python manage.py runserver 8080`
 
@@ -80,11 +80,6 @@ Django version 1.10.5, using settings 'employees.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
-
-
-
-
-To close
 
 
 
