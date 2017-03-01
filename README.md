@@ -6,7 +6,7 @@ Luizalabs Employee Manager is an application to manage employees' information, s
 ### Architecture
 
 #### python manager.py runserver
-Luizalabs Employee Manager's entry point is `jake.sh`, located in the root directory. It requires only the name of the parser (normally the apiKey). The logical execution is:
+Luizalabs Employee Manager's entry point is `manager.py`, located in the root directory. It requires only the django command to start the server. Also, we have a interface to manage the employees data:
 
 - A Django Admin panel to manage employees' data
 - An API to list, add and remove employees
