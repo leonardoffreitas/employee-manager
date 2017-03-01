@@ -2,26 +2,22 @@ Luizalabs Employee Manager
 -
 Luizalabs Employee Manager is an application to manage employees' information, such as name, e-mail and department using Python and the Django web framework.
 
->It's **flexible** because it gives the developer total control over the XML.
-It's **fast** because it uses *memory mapping*,  *xpath* and no classes.
-It's **simple** because uses convention over configuration, keeps everything else explicit and centralizes the customization effort in only one file for each client.
-
-Luizalabs Employee Manager handles *crontab configuration*, remote logging with [Logentries](https://logentries.com/), download and upload of files.
-
 
 ### Architecture
 
-#### jake.sh (entry point)
+#### python manager.py runserver
 Luizalabs Employee Manager's entry point is `jake.sh`, located in the root directory. It requires only the name of the parser (normally the apiKey). The logical execution is:
 
 - A Django Admin panel to manage employees' data
 - An API to list, add and remove employees
 
-#### xml_reader.py (core processing)
-The file `xml_reader.py` (located in `modules`) does the heavy lifting:
+## Getting Started
 
-1. Splits the incoming XML (with possibly lots of GB)  into several ones (with a few KB), each containing only the SKUs related to one product;
-2. Calls `make_product` (the customization part), passing an lxml.etree.ElementTree instance with the root node of each small XML and yields the result (hence it's a generator).
+If you're comfortable getting up and running from a `git clone`, this method is for you.
+
+If you clone the GitHub repository, you will need to build a number of assets using grunt.
+
+The [master](https://github.com/leonardoffreitas/employee-manager.git) branch which contains the latest release.
 
 #### API (RESTful URLs and actions)
 
