@@ -46,7 +46,7 @@ Quit the server with CONTROL-C.
 
 To close, you can press the keys `ctrl` + `c` on your keyboard, like said on the screen.
 
-To start the server on a different port type the port in the end of the command - 8080, for example:
+>To start the server on a different port, type the port in the end of the command - 8080, for example:
 `python manage.py runserver 8080`
 
 #### Employee Manager Interface
@@ -69,7 +69,8 @@ You will be able to manage your employees, also create new users to the system a
 
 #### API (RESTful URLs and actions)
 
-
+On the terminal, type `python manage.py createsuperuser`, press enter. The server will be available on port 8000 read do listen.
+Again. The screen will be showed.
 
 ```
 Performing system checks...
@@ -80,8 +81,6 @@ Django version 1.10.5, using settings 'employees.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
-
-
 
 Those are the actions applied to use the API. RESTful principles provide strategies to handle CRUD actions using HTTP methods mapped as follows:
 
@@ -104,8 +103,6 @@ GET - curl -X GET -H "Content-Type: application/javascript" http://localhost:800
 REMOVE - curl -X DELETE -H "Content-Type: application/javascript" http://localhost:8000/employee/1
 REMOVE - curl -X DELETE -H "Content-Type: application/javascript" http://localhost:8000/employee/leonardo
 ```
-
-1. Execute jake as so: `./jake.sh $parser_module`
 
 Have fun!
 
