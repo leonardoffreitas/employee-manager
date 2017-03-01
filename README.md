@@ -105,6 +105,3 @@ REMOVE - curl -X DELETE -H "Content-Type: application/javascript" http://localho
 ```
 
 Have fun!
-
-## Testing
-
