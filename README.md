@@ -15,7 +15,7 @@ Luizalabs Employee Manager's entry point is `manager.py`, located in the root di
 
 If you're comfortable getting up and running from a `git clone`, this method is for you.
 
-If you clone the GitHub repository, you will need to build a number of assets using grunt.
+If you clone the GitHub repository, you will need to install some libs.
 
 The [master](https://github.com/leonardoffreitas/employee-manager.git) branch which contains the latest release.
 
@@ -69,7 +69,7 @@ You will be able to manage your employees, also create new users to the system a
 
 #### API (RESTful URLs and actions)
 
-On the terminal, type `python manage.py createsuperuser`, press enter. The server will be available on port 8000 read do listen.
+On the terminal, type `python manage.py runserver`, press enter. The server will be available on port 8000 read do listen.
 Again. The screen will be showed.
 
 ```
