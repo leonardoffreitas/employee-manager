@@ -25,8 +25,8 @@ Using `apt-get`:
 sudo apt-get install 	\
    python            	\
    python-pip       	\
-   build-essential   	\
-   pip install Django   
+   build-essential &&
+pip install Django   
 ```   
 ### How to use
 
