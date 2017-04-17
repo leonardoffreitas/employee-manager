@@ -11,8 +11,8 @@ def api_employee(*params):
     return response
 
 def list_employees(*params):
-    '''Method to get list with all employes and them specs'''
-    '''The search by a especific employ can be done with Name or Id'''
+    '''Method to get list with all employees and them specs'''
+    '''The search for a especific employee can be done by Name or Id'''
     request   = params[0]
     e_id      = params[1]
     query_set = None
