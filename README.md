@@ -63,7 +63,7 @@ Superuser created successfully.
 ```
 
 So start the server: `python manage.py runserver`.
-Go to your browser and login with the superuser credentials you chose, you should see the Django admin control panel. The server will be available on port 8000 by the URL: http: // localhost: 8000 / admin /.
+Go to your browser and login with the superuser credentials you chose, you should see the Django admin control panel. The server will be available on port 8000 by the URL: http://localhost:8000/admin/.
 You will be able to manage your employees, also create new users to the system and manager them.
 
 
